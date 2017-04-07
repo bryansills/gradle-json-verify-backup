@@ -8,7 +8,7 @@ version '0.1.0'
 gradlePlugin {
     plugins {
         jsonVerify {
-            id = "ninja.bryansills.json-verify"
+            id = "ninja.bryansills.gradle-json-verify"
             implementationClass = "ninja.bryansills.JsonVerifyPlugin"
         }
     }
