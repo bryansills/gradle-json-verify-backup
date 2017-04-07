@@ -1,0 +1,15 @@
+plugins {
+    id "java-gradle-plugin"
+}
+
+group "ninja.bryansills"
+version '0.1.0'
+
+gradlePlugin {
+    plugins {
+        jsonVerify {
+            id = "ninja.bryansills.json-verify"
+            implementationClass = "ninja.bryansills.JsonVerifyPlugin"
+        }
+    }
+}
