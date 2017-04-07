@@ -1,6 +1,6 @@
 buildscript {
     dependencies {
-        classpath "ninja.bryansills:gradle-json-verify:0.1.0"
+        classpath "ninja.bryansills:gradle-json-verify:0.0.1"
     }
 }
 
