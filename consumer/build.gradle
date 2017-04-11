@@ -5,3 +5,9 @@ buildscript {
 }
 
 apply plugin: 'ninja.bryansills.gradle-json-verify'
+
+task preBuild {
+    doLast {
+        println "This is the preBuild task"
+    }
+}
