@@ -1,4 +1,4 @@
-rootProject.name = 'json-verify'
+rootProject.name = 'gradle-json-verify-project'
 
 include ':consumer'
 
