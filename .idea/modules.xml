@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/consumer/consumer.iml" filepath="$PROJECT_DIR$/.idea/modules/consumer/consumer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/json-verify.iml" filepath="$PROJECT_DIR$/.idea/modules/json-verify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gradle-json-verify-project.iml" filepath="$PROJECT_DIR$/.idea/modules/gradle-json-verify-project.iml" />
     </modules>
   </component>
 </project>
