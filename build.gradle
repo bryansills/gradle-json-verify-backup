@@ -8,7 +8,6 @@
 
 // Apply the groovy plugin to add support for Groovy
 apply plugin: 'groovy'
-apply plugin: 'idea'
 
 // In this section you declare where to find the dependencies of your project
 repositories {

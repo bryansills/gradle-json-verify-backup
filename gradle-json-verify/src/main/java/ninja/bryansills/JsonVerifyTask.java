@@ -11,6 +11,5 @@ public class JsonVerifyTask extends DefaultTask {
     @TaskAction
     public void greet() {
         System.out.println("Hi " + who + "!!!");
-        Math.floor(1.5f);
     }
 }
