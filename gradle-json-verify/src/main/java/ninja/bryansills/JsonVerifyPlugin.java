@@ -31,34 +31,31 @@ public class JsonVerifyPlugin implements Plugin<Project> {
 //            }
 //        }
 
-        target.afterEvaluate(new Action<Project>() {
-            @Override
-            public void execute(Project project) {
-                Set<Task> tasks = target.getTasksByName("preBuild", true);
+        target.afterEvaluate(project -> {
+            Set<Task> tasks = target.getTasksByName("preBuild", true);
 
-                if (tasks.isEmpty()) {
-                    throw new RuntimeException("No tasks!!!");
-                } else {
-                    tasks.forEach(task -> task.dependsOn(jsonVerifyTask));
-                }
-
-                Map<Project, Set<Task>> tasks2 = target.getAllTasks(true);
-
-                for (Map.Entry<Project, Set<Task>> entry : tasks2.entrySet()) {
-                    Project entryProject = entry.getKey();
-                    Set<Task> entryTasks = entry.getValue();
-
-                    System.out.println("dunno" + entryProject.getName());
-
-                    for (Task singleTask : entryTasks) {
-                        if (!singleTask.getName().equals("jsonVerify")) {
-                            singleTask.dependsOn(jsonVerifyTask);
-                        }
-                        System.out.println("wat" + singleTask.getName());
-                    }
-                }
-
+            if (tasks.isEmpty()) {
+                throw new RuntimeException("No tasks!!!");
+            } else {
+                tasks.forEach(task -> task.dependsOn(jsonVerifyTask));
             }
+
+            Map<Project, Set<Task>> tasks2 = target.getAllTasks(true);
+
+            for (Map.Entry<Project, Set<Task>> entry : tasks2.entrySet()) {
+                Project entryProject = entry.getKey();
+                Set<Task> entryTasks = entry.getValue();
+
+                System.out.println("dunno" + entryProject.getName());
+
+                for (Task singleTask : entryTasks) {
+                    if (!singleTask.getName().equals("jsonVerify")) {
+                        singleTask.dependsOn(jsonVerifyTask);
+                    }
+                    System.out.println("wat" + singleTask.getName());
+                }
+            }
+
         });
     }
 }
