@@ -9,7 +9,7 @@ public class JsonVerifyTask extends DefaultTask {
     public String who = "mate";
 
     @TaskAction
-    public void greet() {
+    public void jsonVerify() {
         System.out.println("Hi " + who + "!!!");
     }
 }
