@@ -1,15 +1,12 @@
 package ninja.bryansills;
 
+import com.squareup.moshi.Moshi;
 import org.gradle.api.DefaultTask;
-import org.gradle.api.file.ConfigurableFileCollection;
 import org.gradle.api.file.ConfigurableFileTree;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.TaskAction;
 
 import java.io.File;
-import java.util.List;
-import java.util.Set;
-import java.util.function.Consumer;
 
 public class JsonVerifyTask extends DefaultTask {
     @Input
@@ -19,10 +16,16 @@ public class JsonVerifyTask extends DefaultTask {
     public void jsonVerify() {
         configFiles.forEach(file -> {
             if (".json".equals(getFileExtension(file))) {
-                System.out.println("yay");
+                verifyJsonFile(file);
             }
-            System.out.println(file.getPath());
         });
+    }
+
+    private boolean verifyJsonFile(File file) {
+        System.out.println(file.getPath());
+        Moshi moshi = new Moshi.Builder().build();
+
+        return true;
     }
 
     private String getFileExtension(File file) {
