@@ -17,6 +17,20 @@ public class JsonVerifyTask extends DefaultTask {
 
     @TaskAction
     public void jsonVerify() {
-        configFiles.forEach(file -> System.out.println(file.getPath()));
+        configFiles.forEach(file -> {
+            if (".json".equals(getFileExtension(file))) {
+                System.out.println("yay");
+            }
+            System.out.println(file.getPath());
+        });
+    }
+
+    private String getFileExtension(File file) {
+        String name = file.getName();
+        try {
+            return name.substring(name.lastIndexOf("."));
+        } catch (Exception e) {
+            return "";
+        }
     }
 }
