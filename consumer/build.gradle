@@ -10,3 +10,7 @@ buildscript {
 task preBuild {}
 
 apply plugin: 'ninja.bryansills.gradle-json-verify'
+
+jsonVerify {
+    path = "json/"
+}

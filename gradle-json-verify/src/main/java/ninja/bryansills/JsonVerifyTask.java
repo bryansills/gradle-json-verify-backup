@@ -12,11 +12,12 @@ import java.io.File;
 import java.util.Map;
 
 public class JsonVerifyTask extends DefaultTask {
-    @Input
-    ConfigurableFileTree configFiles = getProject().fileTree(getProject().getProjectDir() + "/json/");
 
     @TaskAction
     public void jsonVerify() {
+        JsonVerifyExtension extension = (JsonVerifyExtension) getProject().getExtensions().findByName("jsonVerify");
+        ConfigurableFileTree configFiles = getProject().fileTree(getProject().getProjectDir() + "/" + extension.getPath());
+
         configFiles.forEach(file -> {
             if (".json".equals(getFileExtension(file))) {
                 verifyJsonFile(file);
@@ -25,7 +26,6 @@ public class JsonVerifyTask extends DefaultTask {
     }
 
     private void verifyJsonFile(File file) {
-        System.out.println(file.getPath());
         Moshi moshi = new Moshi.Builder().build();
         JsonAdapter<Map> jsonAdapter = moshi.adapter(Map.class);
 
